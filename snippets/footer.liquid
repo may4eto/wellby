@@ -1,15 +1,15 @@
 <footer class="footer-global">  
-    <div class="footer-top">
+    <div class="footer-top grid">
         <ul class="products-list">
-            {{ 'footer.list.products' | t }}
+            <h4>{{ 'footer.list.products' | t }}</h4>
             {% for product in collections.frontpage.products limit:4 %}
                 <li>
-                    <a href="{{ product_url }}">{{ product.title }}</a>
+                    <a class="h2" href="{{ product_url }}">{{ product.title }}</a>
                 </li>
             {% endfor %}
         </ul>
         <ul class="contact-list">
-        {{ linkList.footer.title }}
+        <h4>{{ linklists.footer.title }}</h4>
             {% for link in linklists.footer.links %}
                 <li>
                     {% assign child_list_handle = link.title | handleize %}
@@ -25,13 +25,13 @@
             {% endfor %}
         </ul>
         <div class="about-us">
-            {{ 'general.about.title' | t }}
+            <h4>{{ 'general.about.title' | t }}</h4>
             <p>{{ 'general.about.description' | t }}</p>
         </div>
     </div>
     <div class="footer-bottom">
         {% assign copyright_date = 'now' | date: '%Y' %}
-        <span>{{ 'footer.bottom.copyright' | t: date: copyright_date }}</span>
+        <span class="h4">{{ 'footer.bottom.copyright' | t: date: copyright_date }}</span>
         <div class="social-links">
             <a href="{{ 'footer.social.facebook_url' | t }}" target="new">
                 <img src="{{ 'facebook.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'Facebook' }}">
