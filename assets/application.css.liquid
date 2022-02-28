@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@font-face {
+    font-family: 'YoungSerif'
+    src: url('/assets/YoungSerif-Regular.woff2') format("woff2"),
+         url('/assets/YoungSerif-Regular.woff') format("woff"),
+}
+
 :root {
-    --headline-font: 'Georgia', 'Times New Roman', Times, serif;
-    --text-font: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    --headline-font: 'YoungSerif', 'Times New Roman', Times, serif;
+    --text-font: 'Karla', Arial, Helvetica, sans-serif;
     
     --black: #000000;
     --white: #FFFFFF;
@@ -128,6 +135,48 @@ h4, .h4 {
     letter-spacing: 0.075em;
 }
 
+button[type="submit"], .button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    text-align: left;
+    width: 100%;
+    padding: var(--line-global);
+    text-align: center;
+    line-height: var(--line-global);
+    text-size: var(--type-body-med);
+    background: var(--gold);
+    color: var(--white);
+}
+
+button[type="submit"]:disabled, .button:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    text-decoration: line-through
+}
+button[type="submit"]:not(:disabled):hover {
+    filter: brightness(0.9);
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px 1px 1px 1px 1px);
+}
+
 .wrapper {
     padding-left: var(--offset-global);
     padding-right: var(--offset-global);
@@ -183,6 +232,7 @@ h4, .h4 {
     align-items: center;
     justify-content: space-between;
     padding: var(--line-global) var(--offset-global);
+    z-index: 10;
 }
 
 .header-global .logo img {
@@ -264,7 +314,7 @@ h4, .h4 {
     margin: 0 auto;
 }
 
-.below-title p {
+.product-description {
     margin-bottom: var(--line-global);
 }
 
@@ -283,4 +333,98 @@ h4, .h4 {
 .product-card:nth-child(odd) .card-image {
     grid-column: 0; 
     grid-row: 1;
+}
+
+.product-image {
+    width: 100%;
+}
+
+.product-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+#add-to-cart-button {
+    margin-top: var(--line-global);
+}
+
+.option-row {
+    text-align: left;
+    padding: var(--line-global) 0;
+    border-top: var(--standard-border-white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.option-row:last-of-type {
+    border-bottom: var(--standard-border-white);
+}
+
+.option-title {
+    color: var(--text-color-white);
+}
+
+.variant-radio + label {
+    font-size: var(--type-body-small);
+    font-weight: var(--type-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    display: inline-block;
+    cursor: pointer;
+    padding: calc(var(--line-global)/5);
+    border: 1px solid transparent;
+    color: var(--text-color-light-white);
+}
+
+.variant-radio:checked + label {
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.variant-radio:disabled + label {
+    cursor: not-allowed;
+    text-decoration: line-through;
+    color: var(--text-color);
+}
+
+.quantity-button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    text-align: left;
+    font-size: var(--line-global);
+    line-height: var(--line-global);
+    text-align: center;
+    font-weight: var(--type-bold);
+    color: var(--text-color-white);
+    width: var(--line-global);
+}
+
+.quantity-button:disabled {
+    opacity: 0.5;
+}
+
+.quantity-button:not(:disabled):hover {
+    color: var(--white);
+}
+
+.quantity-text {
+    display: inline-block;
+    text-align: center;
+    min-width: var(--line-global);
+    margin: 0 calc(var(--line-global)/2);
 }
