@@ -13,7 +13,7 @@
                     <span class="accent-color">{{ 'product.card.options' | t: optionCount: product.variants.size }} &mdash; </span>
                 {% endif %}
                 {% if product.available %}
-                    <a class="text-white" href="{{ product.url}}">{{ 'product.card.more_info' | t }}</a>
+                    <a class="text-white text-link" href="{{ product.url}}">{{ 'product.card.more_info' | t }}</a>
                 {% else %}
                     {{ 'product.form.sold_out' | t }}
                 {% endif %}
