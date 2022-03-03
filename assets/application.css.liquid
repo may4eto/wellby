@@ -211,7 +211,15 @@ button[type="submit"]:not(:disabled):hover {
 .valign-center {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
+}
+
+.valign-center > *:first-child {
+    margin-top: auto;
+}
+
+.valign-center > *:last-child {
+    margin-bottom: auto;
 }
 
 .ta-center {
@@ -493,4 +501,45 @@ button[type="submit"]:not(:disabled):hover {
 
 .cart-empty-text {
     margin: calc(var(--line-global)*4) 0;
+}
+
+#mini-cart {
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 380px;
+    background: var(--light-black);
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.mini-cart-contents {
+    overflow: auto;
+    padding: var(--offset-global);
+    height: 100%;
+}
+
+html.mini-cart-open {
+    overflow: hidden;
+}
+
+.mini-cart-open #mini-cart {
+    transform: translateX(0);
+}
+
+.mini-cart-open .cart-link .cart-text {
+    display: none;
+    //transition: display 1s ease;
+}
+
+.mini-cart-open .cart-link .cart-close-text {
+    display: inline-block;
+}
+
+.mini-cart-open main {
+    opacity: 0.3;
+    //transition: opacity 1s ease;
+    pointer-events: none;
 }
