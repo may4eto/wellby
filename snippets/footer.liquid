@@ -4,7 +4,7 @@
             <h4>{{ 'footer.list.products' | t }}</h4>
             {% for product in collections.frontpage.products limit:4 %}
                 <li>
-                    <a class="h2" href="{{ product_url }}">{{ product.title }}</a>
+                    <a class="h2" href="{{ product.url }}">{{ product.title }}</a>
                 </li>
             {% endfor %}
         </ul>
